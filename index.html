@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agents</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --category-bg: #fff;
+            --button-bg: #3498db;
+            --button-text: #fff;
+            --button-hover: #2980b9;
+            --heading-color: #2c3e50;
+            --category-border: #e0e0e0;
+        }
+
+        .dark-mode {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --category-bg: #2c2c2c;
+            --button-bg: #2980b9;
+            --button-text: #fff;
+            --button-hover: #3498db;
+            --heading-color: #58a6ff;
+            --category-border: #444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .content-wrapper {
+            background-color: var(--category-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--heading-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background-color: var(--category-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            border: 1px solid var(--category-border);
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            color: var(--heading-color);
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--heading-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 12px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.9em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--button-hover);
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle">Toggle Dark Mode</button>
+    <h1>AI Agents</h1>
+
+    <div class="category">
+        <h2>Customer Support</h2>
+        <div class="button-container">
+            <a href="https://sierraai.com/" target="_blank" class="button">Sierra</a>
+            <a href="https://decagon.ai/" target="_blank" class="button">Decagon</a>
+            <a href="https://www.mavenagi.com/" target="_blank" class="button">Maven AGI</a>
+            <a href="https://devrev.ai" target="_blank" class="button">DevRev</a>
+            <a href="https://gradient-labs.ai/" target="_blank" class="button">Gradient Labs</a>
+            <a href="https://www.observe.ai" target="_blank" class="button">Observe-AI</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Software Development</h2>
+        <div class="button-container">
+            <a href="https://www.cognitionip.com" target="_blank" class="button">Cognition</a>
+            <a href="https://nustom.com/" target="_blank" class="button">Nustom</a>
+            <a href="https://www.factory.ai/" target="_blank" class="button">Factory</a>
+            <a href="https://www.all-hands.dev/" target="_blank" class="button">All Hands</a>
+            <a href="https://github.com/princeton-nlp/SWE-agent" target="_blank" class="button">SWE-agent</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Sales</h2>
+        <div class="button-container">
+            <a href="https://www.11x.ai/" target="_blank" class="button">11x</a>
+            <a href="https://clay.earth" target="_blank" class="button">Clay</a>
+            <a href="https://www.artisan.co/" target="_blank" class="button">Artisan</a>
+            <a href="https://www.endgame.io/" target="_blank" class="button">Endgame</a>
+            <a href="https://www.operator.ai/" target="_blank" class="button">Operator</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>SRE</h2>
+        <div class="button-container">
+            <a href="https://resolve.ai" target="_blank" class="button">Resolve.ai</a>
+            <a href="#" target="_blank" class="button">InteractionLabs</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Security</h2>
+        <div class="button-container">
+            <a href="https://www.dropzone.ai/" target="_blank" class="button">Dropzone AI</a>
+            <a href="https://www.runsybil.com/" target="_blank" class="button">RunSybilAI</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Compliance</h2>
+        <div class="button-container">
+            <a href="https://www.norm.ai/" target="_blank" class="button">Norm AI</a>
+            <a href="https://www.parcha.com/" target="_blank" class="button">Parcha</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Healthcare</h2>
+        <div class="button-container">
+            <a href="https://www.anterior.com/" target="_blank" class="button">Anterior</a>
+            <a href="https://www.thoughtful.ai/" target="_blank" class="button">Thoughtful.AI</a>
+            <a href="https://www.abridge.com" target="_blank" class="button">Abridge</a>
+            <a href="https://www.ambiencehealthcare.com/" target="_blank" class="button">Ambience</a>
+            <a href="https://www.eleos.health" target="_blank" class="button">Eleos</a>
+            <a href="https://www.smarterdx.com/" target="_blank" class="button">SmarterDx</a>
+            <a href="https://www.tennr.com/" target="_blank" class="button">Tennr</a>
+            <a href="https://www.luminai.com/" target="_blank" class="button">Luminai</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Human Resources</h2>
+        <div class="button-container">
+            <a href="https://converzai.com/" target="_blank" class="button">ConverzAI</a>
+            <a href="https://www.moonhub.ai" target="_blank" class="button">Moonhub</a>
+            <a href="https://wranglejobs.com/" target="_blank" class="button">Wrangle</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Legal</h2>
+        <div class="button-container">
+            <a href="https://www.harvey.ai" target="_blank" class="button">Harvey</a>
+            <a href="https://www.evenuplaw.com/" target="_blank" class="button">EvenUp</a>
+            <a href="https://www.eve.legal/" target="_blank" class="button">Eve</a>
+            <a href="https://www.spellbook.legal/" target="_blank" class="button">Spellbook</a>
+            <a href="https://responsiv.ai/" target="_blank" class="button">Responsiv</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Financial Services</h2>
+        <div class="button-container">
+            <a href="https://www.hebbia.ai" target="_blank" class="button">Hebbia</a>
+            <a href="https://www.numeric.io/" target="_blank" class="button">Numeric</a>
+            <a href="https://www.minerva-ai.capital/" target="_blank" class="button">Minerva AI</a>
+            <a href="https://www.greenlite.ai/" target="_blank" class="button">Greenlite</a>
+            <a href="https://www.arkifi.ai/" target="_blank" class="button">Arkifi</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Companions</h2>
+        <div class="button-container">
+            <a href="https://www.deva.me/" target="_blank" class="button">Deva</a>
+            <a href="https://doges.ai/" target="_blank" class="button">DogeAI</a>
+            <a href="https://myshell.ai/" target="_blank" class="button">MyShell</a>
+            <a href="https://nectar.ai/" target="_blank" class="button">Nectar</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Tooling & Infrastructure</h2>
+        <div class="button-container">
+            <a href="https://alethea.ai" target="_blank" class="button">Alethea AI</a>
+            <a href="https://www.naptha.ai/" target="_blank" class="button">Naptha AI</a>
+            <a href="https://www.spectrallabs.xyz/" target="_blank" class="button">Spectral Labs</a>
+            <a href="https://www.chaingpt.org" target="_blank" class="button">ChainGPT</a>
+            <a href="https://operator.io/" target="_blank" class="button">Operator</a>
+            <a href="https://supersight.xyz/" target="_blank" class="button">Supersight</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>DeFi</h2>
+        <div class="button-container">
+            <a href="https://robonet.finance/" target="_blank" class="button">Robonet</a>
+            <a href="https://runloop.xyz/" target="_blank" class="button">Runloop</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Marketplace</h2>
+        <div class="button-container">
+            <a href="https://fetch.ai" target="_blank" class="button">Fetch</a>
+            <a href="https://www.gaianet.ai/" target="_blank" class="button">GaiaNet</a>
+            <a href="https://nevermined.io" target="_blank" class="button">Nevermined</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Privacy</h2>
+        <div class="button-container">
+            <a href="https://www.gizatech.xyz/" target="_blank" class="button">Giza</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>RPA (Robotic Process Automation)</h2>
+        <div class="button-container">
+            <a href="https://www.uipath.com" target="_blank" class="button">UiPath</a>
+            <a href="https://www.automationanywhere.com" target="_blank" class="button">Automation Anywhere</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Enterprise Search</h2>
+        <div class="button-container">
+            <a href="https://www.glean.com" target="_blank" class="button">Glean</a>
+            <a href="https://www.perplexity.ai" target="_blank" class="button">Perplexity</a>
+            <a href="https://sana.ai/" target="_blank" class="button">Sana</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>AI-Enabled Services</h2>
+        <div class="button-container">
+            <a href="https://distyl.ai/" target="_blank" class="button">Distyl</a>
+            <a href="https://www.agnetic.ai/" target="_blank" class="button">Agnetic</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Browser Agents</h2>
+        <div class="button-container">
+            <a href="https://www.multion.ai" target="_blank" class="button">MultiOn</a>
+            <a href="https://lutra.ai/" target="_blank" class="button">Lutra</a>
+            <a href="https://www.zetalabs.ai/" target="_blank" class="button">Zeta Labs</a>
+            <a href="https://twin.so/" target="_blank" class="button">Twin</a>
+            <a href="https://www.induced.ai/" target="_blank" class="button">Induced</a>
+            <a href="https://www.sola-solutions.com/" target="_blank" class="button">Sola</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Process Mining</h2>
+        <div class="button-container">
+            <a href="https://scribehow.com" target="_blank" class="button">Scribe</a>
+            <a href="https://www.mimica.ai" target="_blank" class="button">Mimica</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>RAG-as-a-Service</h2>
+        <div class="button-container">
+            <a href="https://www.danswer.ai/" target="_blank" class="button">Danswer</a>
+            <a href="https://gradient.run" target="_blank" class="button">Gradient</a>
+            <a href="https://www.yurts.ai/" target="_blank" class="button">Yurts</a>
+            <a href="https://www.sensible.so/" target="_blank" class="button">Sensible</a>
+            <a href="https://www.getroe.ai/" target="_blank" class="button">RoeAI</a>
+            <a href="https://runtrellis.com/" target="_blank" class="button">Trellis</a>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2>Other Agents</h2>
+        <div class="button-container">
+            <a href="https://www.slate.ceo/" target="_blank" class="button">Slate</a>
+            <a href="http://wayfinder.ai/" target="_blank" class="button">Way Finder</a>
+            <a href="https://polywrap.io" target="_blank" class="button">Polywrap</a>
+            <a href="https://app.virtuals.io/" target="_blank" class="button">Virtuals</a>
+            <a href="https://www.delysium.com" target="_blank" class="button">Delysium</a>
+            <a href="https://creator.bid/" target="_blank" class="button">Creator Bid</a>
+            <a href="https://openagents.com/" target="_blank" class="button">Open Agents</a>
+            <a href="https://chasm.net/" target="_blank" class="button">Chasm</a>
+            <a href="https://sphereone.xyz/" target="_blank" class="button">SphereOne</a>
+            <a href="https://www.agentcoin.org/" target="_blank" class="button">Agent Coin</a>
+        </div>
+    </div>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = 'Toggle Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = 'Toggle Dark Mode';
+            }
+        });
+
+        // Check for saved user preference, if any, on load of the website
+        const userPreference = localStorage.getItem('theme');
+        if (userPreference === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = 'Toggle Light Mode';
+        }
+    </script>
+</body>
+</html>
